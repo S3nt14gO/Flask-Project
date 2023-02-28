@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+{%block title%}
+Profile Page
+{%endblock%}
+{% block parentBody %}
+
+<div class="container" style="text-align:center">
+<h1>Welcome {{current_user.username}}</h1>
+    <h1>#{{current_user.id}}</h1>
+    <table class="table table-dark table-striped">
+    <tr>
+        <th>Email</th>
+        <th>{{current_user.email}}</th>
+    </tr>
+    </table>
+    <a href="{{ url_for('updateUsername') }}">
+        <button style=" margin-left:2.5%" class="btn btn-primary"> Edit Username </button> </a>
+    <a href="{{ url_for('updateEmail') }}">
+        <button style=" margin-right:2.5%" class="btn btn-primary"> Edit Email </button> </a>
+    <a href="{{ url_for('delete') }}">
+        <button style=" margin-right:2.5%" class="btn btn-danger"> Delete Account </button> </a>
+</div>
+{% endblock %}

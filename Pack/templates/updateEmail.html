@@ -1,0 +1,33 @@
+
+{% extends "index.html" %}
+{%block title%}
+Update page
+{%endblock%}
+
+{% block parentBody %}
+  <h1 style="text-align:center">Update Page</h1>
+  <div class="container">
+    <form action="" method="POST">
+    {{form.hidden_tag()}}
+        <fieldset class="form-group">
+     <div class="form-group m-3">
+      {{ form.email.label() }}
+      {% if form.email.errors %}
+			{{ form.email(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.email.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+     {% else %}
+      {{ form.email (class="form-control col-12")}}
+     {% endif %}
+     </div>
+     <div class="form-group m-3">
+      {{ form.update (class="btn btn-primary" ) }}
+     </div>
+        </fieldset>
+    </form>
+    <a href="{{url_for ('profile')}}"> <button class="btn btn-primary" style="margin-left:1.5%">Return </button></a>
+  </div>
+{% endblock %}

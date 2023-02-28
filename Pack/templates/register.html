@@ -1,0 +1,71 @@
+
+{% extends "index.html" %}
+{%block title%}
+Register
+{%endblock%}
+
+{% block parentBody %}
+  <h1 style="text-align:center">Registeration Page</h1>
+  <div class="container">
+    <form action="" method="POST">
+    {{form.hidden_tag()}}
+        <fieldset class="form-group">
+     <div class="form-group m-3">
+      {{ form.username.label() }}
+	  {% if form.username.errors %}
+			{{ form.username(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.username.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+      {% else %}
+            {{ form.username (class="form-control col-12")}}
+      {% endif %}
+     </div>
+     <div class="form-group m-3">
+      {{ form.email.label() }}
+      {% if form.email.errors %}
+			{{ form.email(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.email.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+     {% else %}
+      {{ form.email (class="form-control col-12")}}
+     {% endif %}
+     </div>
+     <div class="form-group m-3">
+     {{ form.password.label() }}
+      {% if form.password.errors %}
+			{{ form.password(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.password.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+     {% else %}
+         {{ form.password (class="form-control col-12")}}
+     {% endif %}
+     </div>
+     <div class="form-group m-3">
+     {{ form.confirm_password.label() }}
+     {% if form.confirm_password.errors %}
+			{{ form.confirm_password(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.confirm_password.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+     {% else %}
+      {{ form.confirm_password (class="form-control col-12")}}
+     {% endif %}
+     </div>
+     <div class="form-group m-3">
+      {{ form.submit (class="btn-primary")}}
+     </div>
+        </fieldset>
+    </form>
+  </div>
+{% endblock %}

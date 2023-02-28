@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+{%block title%}
+Add post
+{%endblock%}
+
+
+{% block parentBody %}
+  <h1 style="text-align:center">Subject Page</h1>
+  <div class="container">
+    <form action="" method="POST">
+    {{form.hidden_tag()}}
+        <fieldset class="form-group">
+     <div class="form-group m-3">
+      {{ form.title.label() }}
+	  {% if form.title.errors %}
+			{{ form.title(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+			{% for error in form.title.errors %}
+				<span>{{ error }}</span>
+			{% endfor %}
+            </div>
+      {% else %}
+            {{ form.title (class="form-control col-12")}}
+      {% endif %}
+     </div>
+
+     <div class="form-group m-3">
+      {{ form.description.label() }}
+	  {% if form.description.errors %}
+	  {{ form.description(class="form-control is-invalid") }}
+			<div class="invalid-feedback">
+	  {% for error in form.description.errors %}
+			<span>{{ error }}</span>
+	  {% endfor %}
+      </div>
+
+      {% else %}
+            {{ form.description (class="form-control col-12")}}
+      {% endif %}
+     </div>
+      <div class="form-group m-3 ">
+      {{ form.update (class="btn-primary")}}
+     </div>
+        </fieldset>
+    </form>
+  </div>
+{% endblock %}
