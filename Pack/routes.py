@@ -121,6 +121,8 @@ def delete():
 def updatePost(key):
     form = AddPost()
     post = Post.query.filter_by(id=key).first()
+    ptitle = post.title
+    pdescripe = post.description
     if form.validate_on_submit():
         # with app.app_context():
             post.title=form.title.data
@@ -129,7 +131,7 @@ def updatePost(key):
             db.session.commit()
             print(post.title)
             return redirect(url_for('home'))
-    return render_template('updatePost.html', form=form )
+    return render_template('updatePost.html', form=form , ptitle = ptitle, pdescripe=pdescripe)
 
 @app.route("/deletePost/<int:key>",  methods=['GET', 'POST'])
 @login_required

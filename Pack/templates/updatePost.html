@@ -20,7 +20,7 @@ Add post
 			{% endfor %}
             </div>
       {% else %}
-            {{ form.title (class="form-control col-12")}}
+            {{ form.title (value=ptitle ,class="form-control col-12")}}
       {% endif %}
      </div>
 
@@ -35,7 +35,7 @@ Add post
       </div>
 
       {% else %}
-            {{ form.description (class="form-control col-12")}}
+            {{ form.description (value=pdescripe ,class="form-control col-12")}}
       {% endif %}
      </div>
       <div class="form-group m-3 ">
